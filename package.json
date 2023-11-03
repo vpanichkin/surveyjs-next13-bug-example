@@ -2,6 +2,9 @@
   "name": "surveyjs-bug-example",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,7 +12,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "14.0.1",
+    "next": "^14",
     "react": "^18",
     "react-dom": "^18",
     "survey-core": "^1.9.115",

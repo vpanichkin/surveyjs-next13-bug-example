@@ -14,23 +14,74 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Check console
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Current behaviour
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```shell
 
-## Learn More
+⨯ node_modules/survey-core/survey.core.js (23699:0) @ ./src/popup-dropdown-view-model.ts.PopupDropdownViewModel.updateOnHiding
+⨯ Internal error: ReferenceError: window is not defined
+    at ./src/popup-dropdown-view-model.ts.PopupDropdownViewModel.updateOnHiding (./node_modules/survey-core/survey.core.js:23694:9)
+    at onIsVisibleChangedHandler (./node_modules/survey-core/survey.core.js:24364:23)
+    at ./src/popup-view-model.ts.PopupBaseViewModel.setupModel (./node_modules/survey-core/survey.core.js:24369:9)
+    at PopupDropdownViewModel.set (./node_modules/survey-core/survey.core.js:24376:18)
+    at PopupDropdownViewModel.PopupBaseViewModel [as constructor] (./node_modules/survey-core/survey.core.js:24295:21)
+    at new PopupDropdownViewModel (./node_modules/survey-core/survey.core.js:23521:28)
+    at createPopupViewModel (./node_modules/survey-core/survey.core.js:24234:16)
+    at ./src/react/components/popup/popup.tsx.Popup.createModel (./node_modules/survey-react-ui/survey-react-ui.js:11885:94)
+    at new Popup (./node_modules/survey-react-ui/survey-react-ui.js:11871:15)
+    at app-page.runtime.dev.js:35:9134
+    at ap (app-page.runtime.dev.js:35:10905)
+    at e (app-page.runtime.dev.js:35:45795)
+    at ah (app-page.runtime.dev.js:35:47773)
+    at am (app-page.runtime.dev.js:35:49662)
+    at ay (app-page.runtime.dev.js:35:48903)
+    at e (app-page.runtime.dev.js:35:46144)
+    at ah (app-page.runtime.dev.js:35:47773)
+    at ap (app-page.runtime.dev.js:35:39008)
+    at e (app-page.runtime.dev.js:35:45795)
+    at ah (app-page.runtime.dev.js:35:47773)
+    at ap (app-page.runtime.dev.js:35:39008)
+    at e (app-page.runtime.dev.js:35:45795)
+    at ah (app-page.runtime.dev.js:35:47773)
+    at ae (app-page.runtime.dev.js:35:7504)
+    at ap (app-page.runtime.dev.js:35:10920)
+    at e (app-page.runtime.dev.js:35:45795)
+    at ah (app-page.runtime.dev.js:35:47773)
+    at am (app-page.runtime.dev.js:35:49662)
+    at ay (app-page.runtime.dev.js:35:48903)
+    at e (app-page.runtime.dev.js:35:46144)
+    at ah (app-page.runtime.dev.js:35:47773)
+    at am (app-page.runtime.dev.js:35:49662)
+    at app-page.runtime.dev.js:35:38398
+    at ap (app-page.runtime.dev.js:35:38871)
+    at e (app-page.runtime.dev.js:35:45795)
+    at ah (app-page.runtime.dev.js:35:47773)
+    at am (app-page.runtime.dev.js:35:49662)
+    at app-page.runtime.dev.js:35:38398
+    at ap (app-page.runtime.dev.js:35:38871)
+    at e (app-page.runtime.dev.js:35:45795)
+    at ah (app-page.runtime.dev.js:35:47773)
+    at ae (app-page.runtime.dev.js:35:7504)
+    at ap (app-page.runtime.dev.js:35:10920)
+    at e (app-page.runtime.dev.js:35:45795)
+    at ah (app-page.runtime.dev.js:35:47773)
+    at am (app-page.runtime.dev.js:35:49662)
+    at ay (app-page.runtime.dev.js:35:48903)
+    at e (app-page.runtime.dev.js:35:46144)
+    at ah (app-page.runtime.dev.js:35:47773)
+    at am (app-page.runtime.dev.js:35:49662)
+null
 
-To learn more about Next.js, take a look at the following resources:
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Expected behaviour
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+No error is happening, build runs also successfully.
 
-## Deploy on Vercel
+## Versions tried
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Next 13
+2. Next 14
