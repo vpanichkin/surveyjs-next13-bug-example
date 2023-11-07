@@ -1,6 +1,8 @@
 'use client'
+import { useEffect, useState } from 'react'
 import { Model } from 'survey-core'
 import { Survey } from 'survey-react-ui'
+import 'survey-core/defaultV2.min.css';
 
 export default function Home(){
   const surveyJson = {
@@ -16,6 +18,11 @@ export default function Home(){
       },
     ],
   }
-  const survey = new Model(surveyJson)
-  return <Survey model={survey} />
+    const survey = new Model(surveyJson)
+    const [isClient, setIsClient] = useState(false)
+    useEffect(() => {
+      setIsClient(true)
+    }, [])
+   
+    return isClient ? <Survey model={survey} /> : null
 }
